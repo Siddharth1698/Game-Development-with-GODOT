@@ -34,7 +34,6 @@ animations = [ {
 position = Vector2( 495.345, 214.026 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 flip_h = true
 script = ExtResource( 6 )

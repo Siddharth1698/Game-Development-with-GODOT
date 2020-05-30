@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/PlayerAnimation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://GFX/Background/bg_layer1.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Background/bg_layer2.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 67.0
 height = 55.2188
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 272.593, 273.342 )
+position = Vector2( 257.881, 273.342 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -20,11 +22,39 @@ shape = SubResource( 1 )
 
 [node name="PlayerAnimation" parent="." instance=ExtResource( 1 )]
 position = Vector2( 166.962, 3.48151 )
-frame = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 238.856, 29.537 )
+current = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_offset = Vector2( 0, -750 )
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 4 )
+flip_h = true
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="animate" from="." to="PlayerAnimation" method="_on_Player_animate"]
