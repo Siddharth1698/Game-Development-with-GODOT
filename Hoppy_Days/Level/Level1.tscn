@@ -1,63 +1,40 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.7579, 15.7316 )
+[ext_resource path="res://Level/tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://GFX/Background/bg_layer1.png" type="Texture" id=3]
 
 [node name="Level1" type="Node2D"]
+position = Vector2( 473.586, 216.876 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 401.626, 306.905 )
+position = Vector2( -63.7655, 338.408 )
+collision_layer = 2
 
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2( 431.835, 357.809 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Floor"]
-position = Vector2( 132.631, 217.895 )
-scale = Vector2( 5, 5 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2( 131.579, 213.684 )
-scale = Vector2( 10, 10 )
-shape = SubResource( 1 )
-
-[node name="Floor2" type="StaticBody2D" parent="."]
-position = Vector2( 112.505, 271.891 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Floor2"]
-position = Vector2( 132.631, 217.895 )
-scale = Vector2( 5, 5 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
-position = Vector2( 131.579, 213.684 )
-scale = Vector2( 10, 10 )
-shape = SubResource( 1 )
-
-[node name="Floor3" type="StaticBody2D" parent="."]
-position = Vector2( 749.733, 425.112 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Floor3"]
-position = Vector2( 132.631, 217.895 )
-scale = Vector2( 5, 5 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
-position = Vector2( 131.579, 213.684 )
-scale = Vector2( 10, 10 )
-shape = SubResource( 1 )
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -70.8167, 4.42603 )
+tile_set = ExtResource( 2 )
+format = 1
+tile_data = PoolIntArray( -917466, 2, 0, -851930, 2, 0, -720902, 2, 0, -720901, 2, 0, -786394, 2, 0, -589842, 2, 0, -655344, 2, 0, -524307, 2, 0, -458710, 2, 0, -393174, 2, 0, -262158, 5, 0, -327666, 2, 0, -327638, 2, 0, -196635, 2, 0, -262110, 2, 0, -131100, 2, 0, -196588, 5, 0, -25, 2, 0, 65511, 2, 0, 131047, 2, 0, 196597, 2, 0, 131099, 2, 0, 131102, 2, 0, 196614, 5, 0, 196620, 2, 0, 196621, 2, 0, 196624, 2, 0, 196627, 2, 0, 196628, 2, 0, 196630, 2, 0, 196634, 2, 0, 196635, 2, 0, 196636, 2, 0, 196640, 2, 0, 196642, 2, 0, 196648, 2, 0, 262168, 2, 0, 262179, 2, 0, 262180, 2, 0, 262181, 2, 0, 262182, 2, 0, 262183, 2, 0, 262184, 2, 0, 262186, 2, 0, 262187, 2, 0, 262188, 2, 0, 262190, 2, 0, 262191, 2, 0, 393239, 2, 0, 458752, 5, 0, 458767, 2, 0, 589802, 2, 0, 589816, 2, 0, 524325, 2, 0, 524326, 2, 0, 655338, 2, 0, 589872, 2, 0, 720874, 2, 0, 655408, 2, 0, 917517, 5, 0, 1048571, 5, 0, 983073, 2, 0, 1179628, 2, 0, 1245164, 2, 0, 1376299, 2, 0, 1507323, 2, 0, 1441835, 2, 0, 1572863, 2, 0, 1703972, 2, 0, 1703973, 2, 0, 1769492, 2, 0, 1769506, 2, 0, 1769507, 2, 0, 1900527, 2, 0, 1835027, 2, 0, 1835028, 2, 0, 2097147, 2, 0, 2031623, 2, 0, 2031624, 2, 0, 2031625, 2, 0, 2162683, 2, 0, 2162684, 2, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 511.214, 299.282 )
+position = Vector2( -17.9894, 380.64 )
+current = true
+zoom = Vector2( 3, 3 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ParallaxBackground"]
+margin_top = -13.0
+margin_right = 2048.0
+margin_bottom = 2048.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
