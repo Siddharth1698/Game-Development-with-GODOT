@@ -12,6 +12,7 @@ func _physics_process(delta):
 	apply_gravity()
 	jump()
 	move()
+	animate()
 	move_and_slide(motion,UP)
 	
 	
@@ -32,3 +33,14 @@ func move():
 			motion.x = SPEED
 		else:
 			motion.x = 0
+			
+func animate():
+	if motion.y < 0 :
+		$AnimatedSprite.play("jump")
+	elif motion.x > 0 :
+		$AnimatedSprite.play("walk")
+		$AnimatedSprite.flip_h = false
+	elif motion.x < 0:
+		$AnimatedSprite.flip_h = true
+	else:
+		$AnimatedSprite.play("idle")

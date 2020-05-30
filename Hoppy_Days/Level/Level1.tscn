@@ -9,20 +9,55 @@ extents = Vector2( 15.7579, 15.7316 )
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 25.0168, 156.548 )
+position = Vector2( 401.626, 306.905 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 431.835, 357.809 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+[node name="Sprite" type="Sprite" parent="Floor"]
 position = Vector2( 132.631, 217.895 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2( 131.579, 213.684 )
 scale = Vector2( 10, 10 )
 shape = SubResource( 1 )
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2( 112.505, 271.891 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Floor2"]
+position = Vector2( 132.631, 217.895 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2( 131.579, 213.684 )
+scale = Vector2( 10, 10 )
+shape = SubResource( 1 )
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+position = Vector2( 749.733, 425.112 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Floor3"]
+position = Vector2( 132.631, 217.895 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
+position = Vector2( 131.579, 213.684 )
+scale = Vector2( 10, 10 )
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 511.214, 299.282 )
